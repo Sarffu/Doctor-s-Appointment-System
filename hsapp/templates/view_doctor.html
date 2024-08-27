@@ -1,0 +1,40 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container-fluid" style="margin-top: 50px;">
+    <h2 class="text-center">View Doctor</h2> <br>
+
+    <table class="table table-hover" id="example">
+        <thead>
+            <tr>
+                <th>Doctor ID</th>
+                <th>Doctor Name</th>
+                <th>Doctor Contact</th>
+                <th>Doctor Specialization</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in doc %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.mobile}}</td>
+                <td>{{i.specialization}}</td>
+                <td>
+                    <a href="{% url 'delete_doctor' i.id %}"
+                        onclick="return confirm('Are you really want to delete a doctor from data?')"
+                        class="btn btn-danger">
+                        Delete
+                    </a>
+                </td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+{% endblock %}

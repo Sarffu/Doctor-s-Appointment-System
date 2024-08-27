@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <!-- Include Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+{% extends 'navigation.html' %}
+{% block body %}
+<style>
+    .mydivstyle {
+        transition: all 0.3s ease;
+
+    }
+
+    .mydivstyle:hover {
+        box-shadow: 0 0 20px rgba(255, 0, 64, 0.6);
+
+        transform: translateY(-20px);
+    }
+</style>
+
+<body>
+    <div class="container-fluid" style="margin-top: 50px;">
+        <h1 class="text-center">Contact Us!</h1>
+        <div class="row mt-5 text-center">
+            <div class="col-lg-3 mt-5 col-sm-6 mydivstyle">
+                <h4>Contact</h4>
+                <p class="mt-3 font-weight-bold">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    <a href="tel:+919967433117">+91 9967433117</a>
+                </p>
+            </div>
+            <div class="col-lg-3 mt-5 col-sm-6 mydivstyle">
+                <h4>Send Email</h4>
+                <p class="mt-3 font-weight-bold">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <a href="mailto:sarfraj@gmail.com">sarfraj@gmail.com</a>
+                </p>
+            </div>
+            <div class="col-lg-3 mt-5 col-sm-6 mydivstyle">
+                <h4>Locate Us</h4>
+                <p class="mt-3 font-weight-bold">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <a href="http://maps.google.com/maps?q=Powai + Mumbai + MH + India" target="_blank">Powai
+                        Mumbai MH India</a>
+                </p>
+            </div>
+            <div class="col-lg-3 mt-5 col-sm-6 mydivstyle">
+                <h4>Appointment Timings:</h4>
+                <p class="mt-3 font-weight-bold">
+                    <i class="fa-solid fa-clock"></i>
+                    Morning 9:00 am to 14:00 pm and Evening 19:00 pm to 23:00 pm
+                </p>
+            </div>
+
+        </div>
+    </div>
+</body>
+{% endblock %}
+
+</html>
