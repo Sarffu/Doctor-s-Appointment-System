@@ -1,0 +1,53 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container-fluid" style="margin-top: 50px;">
+    <h2 class="text-center">Create Appointment</h2> <br>
+
+    <form method="post" action="{% url 'add_appointment' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="doctor">Doctor</label>
+            <select name="doctor" class="form-control" required>
+                <option value="">Select a Doctor</option>
+                {% for doctor in doctors %}
+                <option value="{{ doctor.id }}">{{ doctor.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="patient">Patient</label>
+            <select name="patient" class="form-control" required>
+                <option value="">Select a Patient</option>
+                {% for patient in patients %}
+                <option value="{{ patient.id }}">{{ patient.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="app_date">Date</label>
+            <input type="date" name="app_date" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="app_time">Time</label>
+            <input type="time" name="app_time" class="form-control" required>
+        </div> <br>
+        <button type="submit" class="btn btn-primary">Create Appointment</button>
+    </form>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var error = "{{ error }}";
+        if (error === "no") {
+            alert('Patient Added Successfully.');
+            window.location.href = '{% url "view_patient" %}';
+        } else if (error === "yes") {
+            alert("Something went wrong! Try Again Later.");
+        }
+    });
+</script>
+
+{% endblock %}
