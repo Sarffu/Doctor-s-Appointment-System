@@ -1,42 +1,97 @@
 {% extends 'navigation.html' %}
 {% load static %}
+
 {% block body %}
 
 <div class="container-fluid" style="margin-top: 50px;">
     <h1 class="text-center">Admin Dashboard</h1> <br> <br> <br>
 
     <style>
-        .rounded {
+        .dashboard-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: inherit;
+            height: 250px;
+            /* Set a fixed height for consistency */
+            box-sizing: border-box;
+            background-color: #fff;
+            /* Background color for visibility */
+        }
+
+        .dashboard-card:hover {
+            box-shadow: 0 0 20px 0 rgb(100, 0, 58);
+            transform: translateY(-15px);
+        }
+
+        .dashboard-card img {
+            width: auto;
+            /* Adjust size as needed */
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-card h4 {
+            margin-bottom: 10px;
+            color: inherit;
+        }
+
+        .dashboard-card .rounded {
             border-top: 10px solid rgb(100, 40, 0);
             border-radius: 5px;
             transition: box-shadow 0.3s ease, transform 0.3s ease;
+            margin-top: 10px;
+            width: 60%;
+            /* Adjust width to ensure it looks good */
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .divstyle:hover {
+        .dashboard-card .rounded:hover {
             box-shadow: 0 0 20px 0 rgb(100, 0, 58);
             transform: translateY(-15px);
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            /* Center align cards horizontally */
+        }
+
+        .col-sm-4 {
+            display: flex;
+            justify-content: center;
+            /* Center align cards in each column */
         }
     </style>
 
     <div class="row">
-        <div class="col-sm-4 text-center divstyle">
-            <h2 style='color: salmon'>{{d}}</h2>
-            <a href="{% url 'view_doctor' %}">
-                <h4 style="color:blueviolet">Doctors</h4>
+        <div class="col-sm-4">
+            <a href="{% url 'view_doctor' %}" class="dashboard-card">
+                <img src="{% static 'images/doctor.png' %}" alt="Doctors">
+                <h4 style="color: blueviolet">Doctors</h4>
                 <hr class="rounded">
             </a>
         </div>
-        <div class="col-sm-4 text-center divstyle">
-            <h2 style='color: salmon'>{{p}}</h2>
-            <a href="{% url 'view_patient' %}">
-                <h4 style="color:rgb(226, 43, 119)">Patient</h4>
+        <div class="col-sm-4">
+            <a href="{% url 'view_patient' %}" class="dashboard-card">
+                <img src="{% static 'images/patient.png' %}" alt="Patients">
+                <h4 style="color: rgb(226, 43, 119)">Patients</h4>
                 <hr class="rounded">
             </a>
         </div>
-        <div class="col-sm-4 text-center divstyle">
-            <h2 style='color: salmon'>{{a}}</h2>
-            <a href="{% url 'view_appointment' %}">
-                <h4 style="color:rgb(43, 183, 226)">Appointments</h4>
+        <div class="col-sm-4">
+            <a href="{% url 'view_appointment' %}" class="dashboard-card">
+                <img src="{% static 'images/app.png' %}" alt="Appointments">
+                <h4 style="color: rgb(43, 183, 226)">Appointments</h4>
                 <hr class="rounded">
             </a>
         </div>

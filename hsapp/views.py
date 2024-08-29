@@ -155,7 +155,7 @@ def Add_appointment(request):
             app_time = parse_time(app_time)
 
             Appointment.objects.create(
-                doctor=doctor, patient=patient, ap_date=app_date, ap_time=app_time
+                doctor=doctor, patient=patient, app_date=app_date, app_time=app_time
             )
             messages.success(request, "Appointment created successfully!")
             return redirect("view_appointment")
